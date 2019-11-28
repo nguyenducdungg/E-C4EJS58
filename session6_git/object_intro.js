@@ -106,18 +106,18 @@ for (let i = 0; i < listPhone.length; i++) {
     }
     console.log('---------------------');
 }
-let searchName = prompt("Bạn muốn tìm  kiếm ") ;
-while(searchName.includes("  ")) {
-    searchName = searchName.replace("  " , " ") ;
-}
-console.log(`----------Kết quả tìm kiếm "${searchName}" :`);
+// let searchName = prompt("Bạn muốn tìm  kiếm ") ;
+// while(searchName.includes("  ")) {
+//     searchName = searchName.replace("  " , " ") ;
+// }
+// console.log(`----------Kết quả tìm kiếm "${searchName}" :`);
 
-for (let i = 0; i < listPhone.length; i++) {
-    const phone = listPhone[i];
-    if (phone.name.toLowerCase().includes(searchName.toLowerCase())) {
-        console.log(phone);
-    }
-}
+// for (let i = 0; i < listPhone.length; i++) {
+//     const phone = listPhone[i];
+//     if (phone.name.toLowerCase().includes(searchName.toLowerCase())) {
+//         console.log(phone);
+//     }
+// }
 
 //Thêm 
 // Sửa 
@@ -125,16 +125,20 @@ for (let i = 0; i < listPhone.length; i++) {
 
 // Tìm theo giá
 
-let pricePhone = Number(prompt("Bạn muốn tìm điện thoại tầm giá:"));
-for (let i = 0; i < listPhone.length; i++) {
-    const phone = listPhone[i];
-    if (phone.price === pricePhone ) {
-        console.log("---------Điện thoại bạn cần tìm ");
-        console.log(phone);
-    } else {
-        
-    }
-}
+// let pricePhone = Number(prompt("Bạn muốn tìm điện thoại tầm giá:"));
+// let result = [] ;
+// for (let i = 0; i < listPhone.length; i++) {
+//     const phone = listPhone[i];
+//     if (phone.price === pricePhone ) {
+//         console.log("---------Điện thoại bạn cần tìm ");
+//         result.push(phone);
+//     }
+//     if (phone.price !== pricePhone) {
+//     console.log("không tìm thấy kết quả");
+//     }
+// }
+
+
 
 // let brandPhone = prompt("Bạn muốn tìm điện thoại hãng:") ;
 // for (let i = 0; i < listPhone.length; i++) {
@@ -145,3 +149,57 @@ for (let i = 0; i < listPhone.length; i++) {
 //     }
 // }
 
+
+
+// Sắp xếp
+for (let i = 0; i < listPhone.length; i++) {
+   for (let j = i + 1 ; j < listPhone.length ; j++) {
+        // so sánh vị trí x với các vị trí phía sau
+       if (listPhone[i].price > listPhone [j].price) {          // tiêu chí sắp xếp.
+           let temp = listPhone[i] ;
+           listPhone[i] = listPhone[j] ;
+           listPhone[j] = temp ;
+       }
+   }
+}
+console.log("---Danh sách sau khi sửa------");
+for (let i = 0; i < listPhone.length; i++) {
+    const phone  = listPhone[i];
+    console.log(`${i+1}.`);
+    
+    for (const key in phone) {
+        const value = phone[key];
+        console.log(key + ":" + value );
+            
+    }
+    console.log('---------------------');
+}
+let stop = true;
+while (stop) {
+  console.log("===MENU===");
+  console.log("1. Hien Thi");
+  console.log("2. Them");
+  console.log("3. Sua");
+  console.log("4. Xoa");
+  console.log("5. Thoat");
+  let input = prompt("Nhap lua chon");
+  switch (input) {
+    case "1":
+      console.log("Hien thi");
+      break;
+    case "2":
+      console.log("Them");
+      break;
+    case "3":
+      console.log("Sua");
+      break;
+    case "4":
+      console.log("Xoa");
+      break;
+    case "5":
+      console.log("Thoat");
+      stop = false;
+      break
+  }
+}
+console.log("Hẹn gặp lại. Cảm ơn bạn");
