@@ -1,0 +1,46 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body{
+    background-image: url('images/bg-pattern.jpg');
+  }
+  #container{
+    width: 70%;
+    margin: auto;
+    height: 800px;
+  }
+  .logo-content img{
+    width: 130px;
+  }
+  .navbar{
+    background-image: url("images/bg-navigation.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .navbar ul{
+    list-style-type: none;
+    list-style: none;
+    display: flex;
+    padding: 2px;
+    text-align: center;
+  
+  }
+  .navbar ul li{
+    flex: 1;
+  }
+  .navbar ul li.active{
+    background-color: gray;
+  }
+  .navbar ul li:hover{
+    background-color: gray;
+  }
+  .navbar ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 18px;
+    display: block;
+  }
+  .navbar ul li a:hover{
+    color: #000;
+  }
