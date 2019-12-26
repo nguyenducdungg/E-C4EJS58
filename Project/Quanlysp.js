@@ -35,6 +35,15 @@ clothers2.color = "black";
 clothers2.desciption = "Quần kaki nam size M, màu trắng";
 clothers.push(clothers2);
 
+let checkExist = localStorage.getItem("AllClothers");
+if (checkExist === null) {
+    localStorage.setItem('AllClothers', JSON.stringify(clothers)); 
+    
+} else {
+    clothers = JSON.parse(checkExist) ;
+}
+
+
 function displayListShoes(ListClothers) {
 
 
@@ -73,6 +82,7 @@ function deleteClother(code) {
         }
         displayListShoes(clothers);
     }
+    localStorage.setItem('AllClothers', JSON.stringify(clothers)); 
 }
 function editClother(code) {
     let currentClother;
@@ -83,7 +93,7 @@ function editClother(code) {
             break;
         }
     }
-
+   
     $('#editClother').modal('show');
     document.getElementById('txtEditCode').value = currentClother.code;
     document.getElementById('txtEditName').value = currentClother.name;
@@ -92,6 +102,7 @@ function editClother(code) {
     document.getElementById('txtEditColer').value = currentClother.color;
     document.getElementById('txtEditBrand').value = currentClother.brand;
     document.getElementById('txtEditDesciption').value = currentClother.desciption;
+    localStorage.setItem('AllClothers', JSON.stringify(clothers)); 
 }
 
 function addClothers(e) {
@@ -110,6 +121,7 @@ function addClothers(e) {
 
     document.getElementById('frmNewClother').reset();
     $('#addClother').modal('hide');
+    localStorage.setItem('AllClothers', JSON.stringify(clothers)); 
 }
 
 function saveClother(e) {
@@ -136,6 +148,6 @@ function saveClother(e) {
     displayListShoes(clothers);
 
     $('#editClother').modal('hide');
-    
+    localStorage.setItem('AllClothers', JSON.stringify(clothers)); 
 
 }
